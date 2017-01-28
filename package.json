@@ -1,0 +1,16 @@
+{
+  "name": "park",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "henri",
+  "contributors": [],
+  "dependencies": {
+    "mongodb": "^2.2.19"
+  }
+}

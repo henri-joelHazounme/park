@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+    <head>
+        <title> Restaurant AP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <form name="formulaire" method="Post" >
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="">
+                            <label>Restaurant :</label><br>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="restaurant" value="Park">Park</label>                   
+                        </div> 
+                        <div class="radio">
+                            <label><input type="radio" name="restaurant" value="Lavanderia">Lavanderia</label>                   
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="restaurant" value="Souschef">SousChef</label>                   
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="">
+                            <label>Opération :</label><br>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="operation" value="1">Événement</label>                   
+                        </div> 
+                        <div class="radio">
+                            <label><input type="radio" name="operation" value="2">Menu du jour</label>                   
+                        </div>                            
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row" id="evenementdiv">
+                            <div class="form-group" >  
+                                <br>
+                                <label for="event">option pour évenement</label>
+                                <select class="form-control" name ="event" id="event">
+                                    <option>ajouter un nouveau</option>
+                                    <option>supprimer un évenement</option>
+                                    <option>lister des évéments</option>                            
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="row" id="menudiv" >
+                            <div class="form-group">                        
+                                <label for="menu">option pour Menu jour</label>
+                                <select class="form-control" name ="menu" id="menu">
+                                    <option>ajouter un nouveau </option>
+                                    <option>lister les menu</option>
+                                    <option>Supprimer un menu </option>                            
+                                </select>
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" id="envoyer" class="btn btn-default">Envoyer</button> 
+                </div>
+            </form>
+            <div class="row" id="services">
+
+            </div>
+            <div class="row">
+                <form>
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Some text in the modal.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#envoyer").click(function () {
+                    $.get("http://localhost:8080/park/evenements/KINAME", function (data, status) {
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+                });
+
+
+
+            });
+
+        </script>
+    </body>
+</html>
